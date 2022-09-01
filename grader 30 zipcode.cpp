@@ -21,23 +21,24 @@ class Letter{
     //**End Insert**
     }
     };
-    class ZipInfo{
-    public:
+class ZipInfo{
+public:
     int zip;
     string province;
     string district;
-    };
+};
 void correctZipAndSortLetters(vector<ZipInfo> &zipinfo, vector<Letter> &letters) {
  //**Begin Insert**
     for(auto &l: letters){
         bool found = false;
         int i = 0;
-        while(!found){
-            if (l.zip != zipinfo[i].zip && l.province == zipinfo[i].province && l.district == zipinfo[i].district){
+        while(!found){//l.zip != zipinfo[i].zip &&
+            if (l.province == zipinfo[i].province && l.district == zipinfo[i].district){
                 found = true;
                 l.zip = zipinfo[i].zip;
             }
             i++;
+            if (i == zipinfo.size()){break;}
         }
     }
     sort(letters.begin(),letters.end());
@@ -61,6 +62,7 @@ int main() {
     letters.push_back(l);
     }
     correctZipAndSortLetters(zipinfo, letters);
+    //cout << "\n===============================================\n";
     for (auto& l:letters) {
     cout<<l.name<<" "<<l.address<<" "<<l.district<<" "<<l.province<<" "<<l.zip<<endl;
     }
