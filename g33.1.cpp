@@ -29,14 +29,16 @@ void clear_table(map<int,int> &m,map<int,int> &ct,queue<int> &ta){
         cout << "test7\n";
         //cout << x->second << "\n";
         if (x->second % ct[x->first] == 0){
-            ta.push(x->second);
+            ta.push(x->first);
+            cout << "test8\n";
             m.erase(x);
         }
+        cout << "test9\n";
     }
 }
 
 int main(){
-    int n,m, inp , t =0,i,j,time;
+    int n,m, inp , t,i,j,time;
     queue<int>outs,table;
     map<int,int> ins;
     map<int,int> chef_table;// table:time use by that table's chef
@@ -56,12 +58,13 @@ int main(){
         outs.push(i+1);
     }
     cout << "test2\n";
+    t = 0;
     while(!outs.empty()){
         cout << "test3\n";
         while(ins.size()< n){
             //ins[table] = time
             int ta = table.front();
-            cout << ta;
+            cout << ta << "," << t <<"\n";
             ins[ta] = t;
             print_map_v1(ins);
             cout << t << "\n";
