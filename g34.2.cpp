@@ -4,6 +4,7 @@
 #include <algorithm>
 
 using namespace std;
+
 int main()
 {
     int n,m,a,inp,i;
@@ -49,7 +50,7 @@ int main()
         for(int j = 0;j<n;j++){//เข้าไปที cargo
             int size_bv =  bidder_v[j].size();
                 //auto endv = bidder_v[j][size_bv - 1];
-            if(bidder_v[j][size_bv - 1].second == i){
+            if(cargo[j]>0 && bidder_v[j][size_bv - 1].second == i){
                 if(bidder_v[j][size_bv - 1].first !=0){
                     result_win[i-1].push_back(j+1);
                     cargo[j]-=1;
