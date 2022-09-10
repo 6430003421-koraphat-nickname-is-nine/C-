@@ -1,3 +1,28 @@
+#include <iostream>
+#include <map>
+#include <vector>
+
+using namespace std;
+/*
+class bidding{
+public:
+    int user;
+    int cargo;
+    int bid;
+
+    biding(const int &user,const int &cargo,const int &bid){
+        this->user = user;
+        this->cargo = cargo;
+        this->bid = bid;
+    }
+    bool operator<(const bidding &other){
+        if(bid != other.bid){return bid<other.bid;}
+        else {return user<other.user;}
+    }
+    string printb(){
+        return "user = " + user + ",bidding = " + bid + ",cargo = " + cargo;
+    }
+};*/
 int main()
 {
     int n,m,a,inp,i;
@@ -43,7 +68,7 @@ int main()
             int size_bv =  bidder_v[j].size();
                 //auto endv = bidder_v[j][size_bv - 1];
             if(bidder_v[j][size_bv - 1].second == i){
-                if(!endv.first==0){
+                if(bidder_v[j][size_bv - 1].first !=0){
                     result_win[i-1].push_back(j+1);
                     cargo[j]-=1;
                     bidder_v[j].pop_back();
